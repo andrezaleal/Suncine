@@ -1,0 +1,19 @@
+{
+  "name": "@sunne-test/back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:back": "tsx watch --env-file .env ./src"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-tsconfig-paths": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "fastify": "^5.1.0",
+    "tsx": "^4.19.2"
+  }
+}

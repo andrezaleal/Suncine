@@ -1,0 +1,27 @@
+{
+  "name": "sunne-test",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Henrique Artur <contato@henriqueartur.com>",
+  "main": "index.js",
+  "engines": {
+    "node": "^20.0.0",
+    "pnpm": "^9.12.2",
+    "yarn": "please-use-pnpm",
+    "npm": "please-use-pnpm",
+    "deno": "please-use-pnpm",
+    "bun": "please-use-pnpm"
+  },
+  "packageManager": "pnpm@9.12.2",
+  "workspaces": [
+    "projects/admin-v2",
+    "projects/api-contracts-v2",
+    "projects/api-v2",
+    "projects/client",
+    "projects/database"
+  ],
+  "scripts": {
+    "dev:back": "pnpm run --filter=@sunne-test/back dev:back",
+    "dev:front": "pnpm run --filter=@sunne-test/front dev:front"
+  }
+}
