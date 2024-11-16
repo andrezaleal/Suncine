@@ -26,6 +26,7 @@
     "db:start": "docker compose up -d",
     "dev:back": "pnpm run --filter=@sunne-test/back dev:back",
     "dev:front": "pnpm run --filter=@sunne-test/front dev:front",
+    "lint": "pnpm biome check --fix --unsafe --diagnostic-level=error ./projects/**",
     "lint:ci": "pnpm biome ci --diagnostic-level=error"
   },
   "devDependencies": {
