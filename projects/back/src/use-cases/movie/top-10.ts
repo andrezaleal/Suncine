@@ -1,7 +1,7 @@
 import type { DbContract } from "../../infra/db"
 import type { MovieData } from "../../infra/db/models/movie"
-import { formatToResponse, get10MostPopular } from "../../movie/calcs"
-import type { MovieInApp } from "../../movie/type"
+import { formatToResponse, get10MostPopular } from "../../domain/movie/calcs"
+import type { MovieInApp } from "../../domain/movie/type"
 import type { TmdbApiContract } from "../../infra/tmdb"
 
 export async function fetchTop10UseCase(

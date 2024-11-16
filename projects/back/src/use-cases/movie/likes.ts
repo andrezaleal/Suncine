@@ -1,5 +1,5 @@
 import type { DbContract } from "../../infra/db"
-import type { MovieInApp } from "../../movie/type"
+import type { MovieInApp } from "../../domain/movie/type"
 
 export async function likesUseCase(DB: DbContract, user_id: string): Promise<MovieInApp[]> {
   const a = await DB.OP.MOVIE.findUserLikes(user_id)

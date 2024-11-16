@@ -1,4 +1,4 @@
-import { get10MostPopular } from "../../movie/calcs"
+import { get10MostPopular } from "../../domain/movie/calcs"
 import type { TmdbApiContract } from "../../infra/tmdb"
 
 export async function mostTrendedUseCase(MOVIE_API: TmdbApiContract) {
