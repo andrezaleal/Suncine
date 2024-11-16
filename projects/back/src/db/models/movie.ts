@@ -1,9 +1,17 @@
-import { model, Schema, type Document } from "mongoose"
+import { type Document, Schema, model } from "mongoose"
+import type { TmdbMovie } from "../../tmdb/type"
 
-interface MovieData extends Document {
+export class MovieData {
+  id: string
   tmdb_id: number
   likes: number
-  tmdb_obj: Map<string, unknown>
+  tmdb_obj: TmdbMovie
+}
+
+interface MovieRawData extends Document {
+  tmdb_id: number
+  likes: number
+  tmdb_obj: TmdbMovie
 }
 
 const MOVIE_SCHEMA: Schema = new Schema({
@@ -16,4 +24,4 @@ const MOVIE_SCHEMA: Schema = new Schema({
   }
 })
 
-export const MOVIE_MODEL = model<MovieData>("Movie", MOVIE_SCHEMA)
+export const MOVIE_MODEL = model<MovieRawData>("Movie", MOVIE_SCHEMA)

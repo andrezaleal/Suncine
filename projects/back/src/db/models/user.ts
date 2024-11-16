@@ -1,6 +1,13 @@
 import { model, Schema, type Document } from "mongoose"
 
-interface UserData extends Document {
+export interface UserData {
+  id: string
+  login: string
+  password?: string
+  name: string
+}
+
+interface UserRawData extends Document {
   login: string
   password: string
   name: string
@@ -23,4 +30,4 @@ const USER_SCHEMA: Schema = new Schema({
   }
 })
 
-export const USER_MODEL = model<UserData>("User", USER_SCHEMA)
+export const USER_MODEL = model<UserRawData>("User", USER_SCHEMA)
