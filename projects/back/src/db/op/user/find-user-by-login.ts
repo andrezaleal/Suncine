@@ -5,5 +5,11 @@ export async function findUserByLogin(MODELS: DbModels, login: string) {
     login
   })
   if (!user) return
-  return { id: user.id, login: user.login, password: user.password, name: user.name }
+  return {
+    id: user.id,
+    login: user.login,
+    password: user.password,
+    salt: user.salt,
+    name: user.name
+  }
 }
