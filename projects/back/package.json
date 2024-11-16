@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "fastify": "^5.1.0",
+    "mongoose": "^8.8.1",
     "tsx": "^4.19.2"
   }
 }
