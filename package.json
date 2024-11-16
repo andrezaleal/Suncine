@@ -23,6 +23,7 @@
   "scripts": {
     "build": "pnpm run build:front",
     "build:front": "pnpm run --filter=@sunne-test/front build",
+    "db:start": "docker compose up -d",
     "dev:back": "pnpm run --filter=@sunne-test/back dev:back",
     "dev:front": "pnpm run --filter=@sunne-test/front dev:front",
     "lint:ci": "pnpm biome ci --diagnostic-level=error"
