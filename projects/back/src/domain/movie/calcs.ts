@@ -1,4 +1,4 @@
-import type { TmdbMovie } from "../tmdb/type"
+import type { TmdbMovie } from "../infra/tmdb/type"
 import type { Movie } from "./type"
 
 const TMDB_BACKDROP_IMG = "https://image.tmdb.org/t/p/original"

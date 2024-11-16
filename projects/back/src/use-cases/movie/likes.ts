@@ -1,4 +1,4 @@
-import type { DbContract } from "../../db"
+import type { DbContract } from "../../infra/db"
 import type { MovieInApp } from "../../movie/type"
 
 export async function likesUseCase(DB: DbContract, user_id: string): Promise<MovieInApp[]> {
