@@ -38,7 +38,10 @@
         "useFilenamingConvention": {
           "level": "error",
           "options": {
-            "filenameCases": ["kebab-case", "PascalCase"]
+            "filenameCases": [
+              "kebab-case",
+              "PascalCase"
+            ]
           }
         },
         "useForOf": "info",
@@ -50,37 +53,56 @@
                 "selector": {
                   "kind": "variable"
                 },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "formats": [
+                  "snake_case",
+                  "CONSTANT_CASE"
+                ]
               },
               {
                 "selector": {
                   "kind": "functionParameter"
                 },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "formats": [
+                  "snake_case",
+                  "CONSTANT_CASE"
+                ]
               },
               {
                 "selector": {
                   "kind": "objectLiteralProperty"
                 },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "formats": [
+                  "snake_case",
+                  "PascalCase",
+                  "CONSTANT_CASE"
+                ]
               },
               {
                 "selector": {
                   "kind": "classProperty"
                 },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "formats": [
+                  "snake_case",
+                  "CONSTANT_CASE"
+                ]
               },
               {
                 "selector": {
                   "kind": "typeLike"
                 },
-                "formats": ["PascalCase", "CONSTANT_CASE"]
+                "formats": [
+                  "PascalCase",
+                  "CONSTANT_CASE"
+                ]
               },
               {
                 "selector": {
                   "kind": "typeProperty"
                 },
-                "formats": ["snake_case", "CONSTANT_CASE"]
+                "formats": [
+                  "snake_case",
+                  "CONSTANT_CASE"
+                ]
               }
             ]
           }
