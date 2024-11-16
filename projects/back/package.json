@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev:back": "tsx watch --env-file .env ./src"
+    "dev:back": "tsx watch --env-file .env ./src",
+    "lint": "biome check --fix --unsafe ./src/**",
+    "lint:ci": "biome check --diagnostic-level=error ./src/**"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
