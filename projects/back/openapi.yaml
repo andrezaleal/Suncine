@@ -1,0 +1,242 @@
+openapi: 3.0.0
+info:
+  title: Suncine
+  description: API documentation for Sunne Test
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+paths:
+  ### AUTH ####
+  /login:
+    post:
+      summary: Login to the system
+      description: Authenticate a user and retrieve a JWT token along with user information.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                  format: email
+                  example: admin@email.com
+                  description: The user's login email address.
+                password:
+                  type: string
+                  format: password
+                  example: Admin@123
+                  description: The user's password.
+      responses:
+        200:
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+                    description: Status of the request.
+                  payload:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: JWT token for authenticated requests.
+                        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Mzk0ZDE1YzdlODJkZWE1MjI4NjMzZCIsImxvZ2luIjoiYWRtaW5AZW1haWwuY29tIiwibmFtZSI6IkRldiIsImlhdCI6MTczMTg0OTY5NywiZXhwIjoxNzMyNDU0NDk3fQ.V05Z1XBEdEx-Jn0cGRttDWU5SHDXbPk2BhgYneKtmZ4
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            description: Unique user ID.
+                            example: 67394d15c7e82dea5228633d
+                          login:
+                            type: string
+                            description: User's login email.
+                            example: admin@email.com
+                          name:
+                            type: string
+                            description: User's name.
+                            example: Dev
+        401:
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UNAUTHORIZED
+                    description: Status indicating the user is unauthorized.
+
+  ### MOVIE ####
+  /movie/most-trended:
+    get:
+      summary: Fetch the most trended movie details
+      tags:
+        - Movies
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_liked:
+                    type: boolean
+                  backdrop_path:
+                    type: string
+                    format: uri
+                  poster_path:
+                    type: string
+                    format: uri
+                  title:
+                    type: string
+                  original_title:
+                    type: string
+                  tmdb_id:
+                    type: integer
+                  id:
+                    type: string
+                  likes:
+                  type: integer
+        500:
+          description: Internal server error
+
+  /movie/top-10:
+    get:
+      summary: Get the top 10 trending movies
+      description: Retrieve a list of the top 10 trending movies, including details such as title, release date, popularity, and user preferences.
+      tags:
+        - Movies
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    backdrop_path:
+                      type: string
+                      format: uri
+                      description: URL to the movie's backdrop image.
+                      example: https://image.tmdb.org/t/p/original//8mjYwWT50GkRrrRdyHzJorfEfcl.jpg
+                    id:
+                      type: string
+                      description: Internal unique movie ID.
+                      example: 6739f578aeafac0e04e2bf68
+                    title:
+                      type: string
+                      description: Localized title of the movie.
+                      example: Gladiador II
+                    original_title:
+                      type: string
+                      description: Original title of the movie.
+                      example: Gladiator II
+                    poster_path:
+                      type: string
+                      format: uri
+                      description: URL to the movie's poster image.
+                      example: https://image.tmdb.org/t/p/w500//z1hNoGhH12ISnPzPqMOq1QLVGdu.jpg
+                    popularity:
+                      type: number
+                      description: Popularity score of the movie.
+                      example: 2185.274
+                    release_date:
+                      type: string
+                      format: date
+                      description: Release date of the movie.
+                      example: 2024-11-13
+                    tmdb_id:
+                      type: integer
+                      description: The movie's ID on TMDB.
+                      example: 558449
+                    likes:
+                      type: integer
+                      description: Number of likes received.
+                      example: 0
+                    user_liked:
+                      type: boolean
+                      description: Whether the authenticated user liked this movie.
+                      example: false
+        401:
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UNAUTHORIZED
+                    description: Status indicating the user is unauthorized.
+
+  ### USER ####
+  /user/me:
+    get:
+      summary: Get the authenticated user's details
+      description: Retrieve information about the currently authenticated user.
+      tags:
+        - User
+      security:
+        - bearerAuth: [] # Use the defined security scheme for Authorization header
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+                    description: Status of the request.
+                  payload:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Unique user ID.
+                        example: 67394d15c7e82dea5228633d
+                      login:
+                        type: string
+                        description: User's login email.
+                        example: admin@email.com
+                      name:
+                        type: string
+                        description: User's name.
+                        example: Dev
+        401:
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UNAUTHORIZED
+                    description: Status indicating the user is unauthorized.
+
+### COMPONENTS ####
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
