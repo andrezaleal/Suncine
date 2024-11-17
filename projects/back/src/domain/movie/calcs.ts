@@ -1,8 +1,6 @@
 import type { TmdbMovie } from "../../infra/tmdb/type"
+import { TMDB_BACKDROP_IMG, TMDB_POSTER_IMG } from "./const"
 import type { Movie } from "./type"
-
-const TMDB_BACKDROP_IMG = "https://image.tmdb.org/t/p/original"
-const TMDB_POSTER_IMG = "https://image.tmdb.org/t/p/w500"
 
 export function isTmdbMovieDto(movie: unknown): boolean {
   return (
@@ -44,8 +42,16 @@ export function formatToResponse(movies: TmdbMovie[]): Movie[] {
     } = m
     return {
       ...rest,
-      backdrop_path: `${TMDB_BACKDROP_IMG}/${rest.backdrop_path}`,
-      poster_path: `${TMDB_POSTER_IMG}/${rest.poster_path}`
+      backdrop_path: formatBackdropImg(rest.backdrop_path),
+      poster_path: formatPosterImg(rest.poster_path)
     }
   })
+}
+
+export function formatBackdropImg(path: string) {
+  return `${TMDB_BACKDROP_IMG}/${path}`
+}
+
+export function formatPosterImg(path: string) {
+  return `${TMDB_POSTER_IMG}/${path}`
 }
