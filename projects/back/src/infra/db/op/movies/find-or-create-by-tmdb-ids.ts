@@ -25,6 +25,6 @@ export async function findOrCreateByTmdbIds(
     id: movie_mongo.id,
     tmdb_id: movie_mongo.tmdb_id,
     likes: movie_mongo.likes,
-    tmdb_obj: movie_mongo.tmdb_obj
+    tmdb_obj: Object.fromEntries(movie_mongo.tmdb_obj) as unknown as TmdbMovie
   }))
 }

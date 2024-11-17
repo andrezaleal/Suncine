@@ -1,6 +1,6 @@
 import type { DbContract } from "../../infra/db"
 import type { MovieData } from "../../infra/db/models/movie"
-import { formatToResponse, get10MostPopular } from "../../domain/movie/calcs"
+import { formatToApp, formatToResponse, get10MostPopular } from "../../domain/movie/calcs"
 import type { MovieInApp } from "../../domain/movie/type"
 import type { TmdbApiContract } from "../../infra/tmdb"
 
@@ -20,12 +20,6 @@ export async function fetchTop10UseCase(
   const user_likes_ids = user_likes.map((l) => l.tmdb_id)
   return top_10_fields_formatted.map((m) => {
     const movie_in_app = movies_like.find((ml) => ml.tmdb_id === m.id) as MovieData
-    return {
-      ...m,
-      tmdb_id: m.id,
-      id: movie_in_app.id,
-      likes: movie_in_app.likes,
-      user_liked: !!user_likes_ids.includes(movie_in_app.tmdb_id)
-    }
+    return formatToApp(movie_in_app, !!user_likes_ids.includes(movie_in_app.tmdb_id))
   })
 }

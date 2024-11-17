@@ -11,7 +11,7 @@ export class MovieData {
 interface MovieRawData extends Document {
   tmdb_id: number
   likes: number
-  tmdb_obj: TmdbMovie
+  tmdb_obj: Map<keyof TmdbMovie, unknown>
 }
 
 const MOVIE_SCHEMA: Schema = new Schema({

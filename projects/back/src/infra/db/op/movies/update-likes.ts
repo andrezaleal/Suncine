@@ -1,4 +1,5 @@
 import type { DbModels } from "../.."
+import type { TmdbMovie } from "../../../tmdb/type"
 import type { MovieData } from "../../models/movie"
 
 export async function updateLikes(
@@ -14,6 +15,6 @@ export async function updateLikes(
     id: movie_doc.id,
     likes: movie_doc.likes,
     tmdb_id: movie_doc.tmdb_id,
-    tmdb_obj: movie_doc.tmdb_obj
+    tmdb_obj: Object.fromEntries(movie_doc.tmdb_obj) as unknown as TmdbMovie
   }
 }

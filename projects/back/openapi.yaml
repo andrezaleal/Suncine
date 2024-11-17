@@ -185,6 +185,49 @@ paths:
                     example: UNAUTHORIZED
                     description: Status indicating the user is unauthorized.
 
+  /movie/like/{tmdb_id}:
+    put:
+      summary: Like or unlike a movie
+      description: Toggle the like status of a movie by its TMDB ID. Returns the current like status.
+      tags:
+        - Movies
+      security:
+        - bearerAuth: [] # Requires Bearer Token
+      parameters:
+        - name: tmdb_id
+          in: path
+          required: true
+          description: The TMDB ID of the movie to like or unlike.
+          schema:
+            type: integer
+            example: 558449
+      responses:
+        200:
+          description: Successful like/unlike toggle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - LIKE
+                      - UNLIKE
+                    description: The new like status of the movie.
+                    example: LIKE
+        401:
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UNAUTHORIZED
+                    description: Status indicating the user is unauthorized.
+
   ### USER ####
   /user/me:
     get:

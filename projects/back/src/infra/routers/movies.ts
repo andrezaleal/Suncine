@@ -7,6 +7,7 @@ import type { User } from "../../domain/user/type"
 import { DB } from "../db"
 import { AuthHandler } from "../auth"
 import { toggleLikeUseCase } from "../../use-cases/movie/toggle-like"
+import { likesUseCase } from "../../use-cases/movie/likes"
 
 const MOVIE_PATH = "/movie"
 
@@ -57,4 +58,20 @@ const TOGGLE_LIKE = {
   }
 }
 
-export const MOVIE_ROUTERS = [MOST_TRENDED, TOP_10, TOGGLE_LIKE]
+const LIKES = {
+  method: "GET",
+  url: `${MOVIE_PATH}/likes`,
+  preHandler: AuthHandler,
+  handler: async (req: FastifyRequest, reply: FastifyReply) => {
+    const { user } = req as FastifyRequest & { user: User }
+    try {
+      const payload = await likesUseCase(DB(), user.id)
+      return reply.status(200).send(payload)
+    } catch (error) {
+      console.error(error)
+      return reply.status(500).send()
+    }
+  }
+}
+
+export const MOVIE_ROUTERS = [MOST_TRENDED, TOP_10, LIKES, TOGGLE_LIKE]

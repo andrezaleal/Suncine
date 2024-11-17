@@ -1,6 +1,8 @@
 import type { DbModels } from "../.."
+import type { TmdbMovie } from "../../../tmdb/type"
+import type { MovieData } from "../../models/movie"
 
-export async function findUserLikes(MODELS: DbModels, user_id: string) {
+export async function findUserLikes(MODELS: DbModels, user_id: string): Promise<MovieData[]> {
   const existing_likes = await MODELS.USER_LIKE.find({
     user_id: user_id
   })
@@ -9,9 +11,9 @@ export async function findUserLikes(MODELS: DbModels, user_id: string) {
     tmdb_id: { $in: tmdb_ids }
   })
   return existing_movies.map((movie_mongo) => ({
-    id: movie_mongo.id,
+    id: movie_mongo.id as string,
     tmdb_id: movie_mongo.tmdb_id,
     likes: movie_mongo.likes,
-    tmdb_obj: movie_mongo.tmdb_obj
+    tmdb_obj: Object.fromEntries(movie_mongo.tmdb_obj) as unknown as TmdbMovie
   }))
 }

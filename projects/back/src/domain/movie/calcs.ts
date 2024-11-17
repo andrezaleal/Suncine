@@ -1,6 +1,7 @@
+import type { MovieData } from "../../infra/db/models/movie"
 import type { TmdbMovie } from "../../infra/tmdb/type"
 import { TMDB_BACKDROP_IMG, TMDB_POSTER_IMG } from "./const"
-import type { Movie } from "./type"
+import type { Movie, MovieInApp } from "./type"
 
 export function isTmdbMovieDto(movie: unknown): boolean {
   return (
@@ -49,9 +50,24 @@ export function formatToResponse(movies: TmdbMovie[]): Movie[] {
 }
 
 export function formatBackdropImg(path: string) {
-  return `${TMDB_BACKDROP_IMG}/${path}`
+  return `${TMDB_BACKDROP_IMG}${path}`
 }
 
 export function formatPosterImg(path: string) {
-  return `${TMDB_POSTER_IMG}/${path}`
+  return `${TMDB_POSTER_IMG}${path}`
+}
+
+export function formatToApp(movie: MovieData, user_liked = false): MovieInApp {
+  return {
+    tmdb_id: movie.tmdb_id,
+    id: movie.id,
+    likes: movie.likes,
+    user_liked,
+    backdrop_path: formatBackdropImg(movie.tmdb_obj.backdrop_path),
+    title: movie.tmdb_obj.title,
+    original_title: movie.tmdb_obj.original_title,
+    poster_path: formatPosterImg(movie.tmdb_obj.poster_path),
+    release_date: movie.tmdb_obj.release_date,
+    overview: movie.tmdb_obj.overview
+  }
 }
