@@ -29,6 +29,9 @@ fastify
     uiConfig: {
       docExpansion: "none",
       deepLinking: false
+    },
+    theme: {
+      title: "SunCine API Doc"
     }
   })
 
