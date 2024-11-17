@@ -1,10 +1,14 @@
 import type { DbModels } from "../.."
-import { findUserByLogin } from "./find-user-by-login"
+import { fetchById } from "./fetch-by-id"
+import { fetchByLogin } from "./fetch-by-login"
 
 export function UserOp(MODELS: DbModels) {
   return {
-    findUserByLogin(login: string) {
-      return findUserByLogin(MODELS, login)
+    fetchById(id: string) {
+      return fetchById(MODELS, id)
+    },
+    fetchByLogin(login: string) {
+      return fetchByLogin(MODELS, login)
     }
   }
 }
