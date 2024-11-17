@@ -6,6 +6,7 @@ import { fetchTop10UseCase } from "../../use-cases/movie/top-10"
 import type { User } from "../../domain/user/type"
 import { DB } from "../db"
 import { AuthHandler } from "../auth"
+import { toggleLikeUseCase } from "../../use-cases/movie/toggle-like"
 
 const MOVIE_PATH = "/movie"
 
@@ -39,4 +40,21 @@ const TOP_10 = {
   }
 }
 
-export const MOVIE_ROUTERS = [MOST_TRENDED, TOP_10]
+const TOGGLE_LIKE = {
+  method: "PUT",
+  url: `${MOVIE_PATH}/like/:tmdb_id`,
+  preHandler: AuthHandler,
+  handler: async (req: FastifyRequest, reply: FastifyReply) => {
+    const { user } = req as FastifyRequest & { user: User }
+    const { tmdb_id } = req.params as { tmdb_id: number }
+    try {
+      const payload = await toggleLikeUseCase(DB(), user.id, tmdb_id)
+      return reply.status(200).send(payload)
+    } catch (error) {
+      console.error(error)
+      return reply.status(500).send()
+    }
+  }
+}
+
+export const MOVIE_ROUTERS = [MOST_TRENDED, TOP_10, TOGGLE_LIKE]
