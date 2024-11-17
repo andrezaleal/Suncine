@@ -4,18 +4,33 @@ import mongoose from "mongoose"
 import { ENV_VAR } from "../env"
 import { RunSeed } from "./infra/seed"
 import { DB } from "./infra/db"
+import swagger from "@fastify/swagger"
+import swaggerUi from "@fastify/swagger-ui"
+import path from "node:path"
+
+const PORT = 3000
 
 const fastify = Fastify({
   logger: true
 }).decorateRequest("user", undefined)
 
-const PORT = 3000
-
-fastify.get("/", () => ({
-  hello: "world"
-}))
-
 addRouters(fastify)
+
+fastify
+  .register(swagger, {
+    mode: "static",
+    specification: {
+      path: path.join(__dirname, "..", "openapi.yaml"),
+      baseDir: __dirname
+    }
+  })
+  .register(swaggerUi, {
+    routePrefix: "/docs",
+    uiConfig: {
+      docExpansion: "none",
+      deepLinking: false
+    }
+  })
 
 async function Start() {
   try {
@@ -26,7 +41,12 @@ async function Start() {
     await RunSeed(DB(), ENV_VAR)
     await fastify.ready()
     await fastify.listen({ port: PORT })
+    console.info()
+    console.info("+++++++++++")
     console.info(`Server running on port: ${PORT}`)
+    console.info(`Swagger docs available at http://localhost:${PORT}/docs`)
+    console.info("+++++++++++")
+    console.info()
   } catch (error) {
     console.error(error)
     fastify.log.error(error)
