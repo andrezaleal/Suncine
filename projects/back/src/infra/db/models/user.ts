@@ -8,7 +8,7 @@ export interface UserData {
   name: string
 }
 
-interface UserRawData extends Document {
+export interface UserRawData extends Document {
   login: string
   password: string
   salt: string
