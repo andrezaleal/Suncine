@@ -43,6 +43,14 @@ O desafio consiste em desenvolver os componentes conforme o material de referên
 
 Se não for possível reproduzir todos os detalhes do design, envie o resultado mesmo assim. A avaliação irá considerar mais do que a similaridade com o material de referência.
 
+### 🗂️ Entrega do Código
+- O código deve ser colocado em um **repositório público no GitHub**.
+- O link do repositório deve ser enviado conforme descrito no e-mail recebido junto com este desafio.
+- Apenas os commits realizados **até a data prevista no e-mail** serão válidos. O avaliador irá verificar o histórico de commits.
+
+### 📝 Documentação
+Caso seja necessário algum passo adicional para rodar o projeto (além do que já foi configurado), isso deve ser **descrito ao final do README** do repositório.
+
 ### 🔍 Ferramentas e Suporte
 
 Você pode utilizar qualquer ferramenta que facilite o desenvolvimento, como _ChatGPT_, _pesquisas na internet_, ou até mesmo _consultar colegas mais experientes_. Isso não será um problema.
