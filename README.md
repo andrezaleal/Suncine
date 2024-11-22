@@ -206,38 +206,32 @@ O **front-end** de um projeto que foi desenvolvido utilizando **React**, **TypeS
 - **HTML**: Estruturação básica das páginas e componentes.
 
 ## Estrutura do Projeto 📂
-src/
-│
-├── assets/
-│   ├── fonts/
-│   └── images/
-│
-├── components/
-│   ├── [Componentes criados]
-│   └── ui/ (Shadcn components)
-│
-├── context/
-│   └── authContext.tsx
-│
-├── hooks/
-│   ├── useApi.ts
-│   └── [hooks de requisições]
-│
-├── lib/
-│   └── utils.ts
-│
-├── pages/
-│   └── [Páginas do projeto]
-│
-├── routes/
-│   ├── publicRoutes.tsx
-│   └── privateRoutes.tsx
-│
-├── service/
-│   └── api.ts
-│
-└── types/
-    └── [tipos utilizados em várias partes da aplicação]
+
+A estrutura de pastas do front-end é organizada da seguinte maneira:
+
+- **src/**
+  - **assets/**
+    - `fonts/`: Contém fontes utilizadas no projeto.
+    - `images/`: Armazena as imagens estáticas.
+  - **components/**
+    - `[Componentes criados]`: Todos os componentes reutilizáveis criados durante o desenvolvimento.
+    - `ui/`: Contém os componentes da biblioteca **Shadcn**.
+  - **context/**
+    - `authContext.tsx`: Arquivo responsável pelo contexto de autenticação.
+  - **hooks/**
+    - `useApi.ts`: Hook para requisições de consumo de API.
+    - `[outros hooks de requisições]`: Outros hooks utilizados no projeto.
+  - **lib/**
+    - `utils.ts`: Arquivo de utilitários com funções auxiliares.
+  - **pages/**
+    - `[Páginas do projeto]`: Contém as páginas acessíveis na aplicação.
+  - **routes/**
+    - `publicRoutes.tsx`: Define as rotas públicas.
+    - `privateRoutes.tsx`: Define as rotas privadas.
+  - **service/**
+    - `api.ts`: Arquivo de configuração da API.
+  - **types/**
+    - `[tipos utilizados em várias partes da aplicação]`: Tipos e interfaces utilizadas em várias partes do código.
 
 
 ### Descrição das Pastas 📁
