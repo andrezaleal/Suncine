@@ -206,7 +206,39 @@ O **front-end** de um projeto que foi desenvolvido utilizando **React**, **TypeS
 - **HTML**: Estruturação básica das páginas e componentes.
 
 ## Estrutura do Projeto 📂
-src/ │ ├── assets/ │ ├── fonts/ │ └── images/ │ ├── components/ │ ├── [Componentes criados] │ └── ui/ (Shadcn components) │ ├── context/ │ └── authContext.tsx │ ├── hooks/ │ └── [hooks de requisições] │ ├── lib/ │ └── utils.ts │ ├── pages/ │ └── [Páginas do projeto] │ ├── routes/ │ ├── publicRoutes.tsx │ └── privateRoutes.tsx │ ├── service/ │ └── api.ts │ └── types/ └── [tipos utilizados em várias partes da aplicação]
+src/
+│
+├── assets/
+│   ├── fonts/
+│   └── images/
+│
+├── components/
+│   ├── [Componentes criados]
+│   └── ui/ (Shadcn components)
+│
+├── context/
+│   └── authContext.tsx
+│
+├── hooks/
+│   ├── useApi.ts
+│   └── [hooks de requisições]
+│
+├── lib/
+│   └── utils.ts
+│
+├── pages/
+│   └── [Páginas do projeto]
+│
+├── routes/
+│   ├── publicRoutes.tsx
+│   └── privateRoutes.tsx
+│
+├── service/
+│   └── api.ts
+│
+└── types/
+    └── [tipos utilizados em várias partes da aplicação]
+
 
 ### Descrição das Pastas 📁
 
