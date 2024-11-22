@@ -189,3 +189,45 @@ Abaixo estão as capturas de tela das páginas que devem ser implementadas:
 ![Tela de Perfil](./docs/img/refs/ME.png "perfil")
 
 ## 📄 Documentação do Candidato
+
+# Projeto Front-End 🚀
+
+O **front-end** de um projeto que foi desenvolvido utilizando **React**, **TypeScript**, **Tailwind CSS** e diversas outras tecnologias.
+
+## Tecnologias Utilizadas 💻
+
+- **React**: Framework JavaScript utilizado para construir a interface interativa e gerenciar o estado da aplicação.
+- **TypeScript**: Superset do JavaScript, utilizado para melhorar a qualidade do código com tipagem estática.
+- **CSS**: Estilização básica das páginas e componentes.
+- **Tailwind CSS**: Framework de utilitários para a estilização eficiente e responsiva.
+- **Shadcn**: Biblioteca de componentes para construção de elementos UI personalizados e estilizados.
+- **Tabler Icons**: Biblioteca de ícones utilizada para fornecer ícones vetoriais no projeto.
+- **Axios**: Biblioteca para realizar requisições HTTP e integração com o back-end.
+- **HTML**: Estruturação básica das páginas e componentes.
+
+## Estrutura do Projeto 📂
+src/ │ ├── assets/ │ ├── fonts/ │ └── images/ │ ├── components/ │ ├── [Componentes criados] │ └── ui/ (Shadcn components) │ ├── context/ │ └── authContext.tsx │ ├── hooks/ │ └── [hooks de requisições] │ ├── lib/ │ └── utils.ts │ ├── pages/ │ └── [Páginas do projeto] │ ├── routes/ │ ├── publicRoutes.tsx │ └── privateRoutes.tsx │ ├── service/ │ └── api.ts │ └── types/ └── [tipos utilizados em várias partes da aplicação]
+
+### Descrição das Pastas 📁
+
+- **assets**: Contém arquivos estáticos como fontes e imagens.
+- **components**: Armazena todos os componentes reutilizáveis do projeto, além da pasta `ui`, que contém os componentes da biblioteca **Shadcn**.
+- **context**: Contém o arquivo **authContext.tsx** que gerencia o estado de autenticação do usuário.
+- **hooks**: Armazena hooks personalizados, incluindo os hooks responsáveis pelas requisições de consumo das APIs.
+- **lib**: Contém utilitários auxiliares, como o arquivo **utils.ts**.
+- **pages**: Armazena todas as páginas acessíveis dentro do projeto.
+- **routes**: Define as rotas públicas e privadas do projeto.
+- **service**: Contém a configuração da API, onde as requisições HTTP são feitas.
+- **types**: Contém os tipos TypeScript usados em várias partes da aplicação, como interfaces e tipos de dados.
+
+## Integração com o Back-End 🔌
+
+A integração com o back-end foi realizada através de **requisições HTTP** utilizando **Axios**. As funcionalidades integradas incluem:
+
+- **Serviço de Login**: Para autenticação de usuários 🔐.
+- **Carregamento de Dados do Usuário**: Exibição das informações do usuário logado 👤.
+- **Exibição do Top 10 Filmes**: Exibição da lista dos filmes mais populares no momento 🎬.
+- **Curtir/Descurtir Filmes**: Permite que o usuário curta ou descurta filmes na plataforma ❤️❌.
+- **Visualização de Filmes Curtidos**: O usuário pode acessar os filmes que curtiu ao longo do uso da aplicação 🍿.
+
+## Conclusão 🎉
