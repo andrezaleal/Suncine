@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
-
 interface LoginFormProps {
   email: string;
   password: string;
