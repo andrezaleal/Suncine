@@ -219,12 +219,11 @@ A estrutura de pastas do front-end é organizada da seguinte maneira:
   - **context/**
     - `authContext.tsx`: Arquivo responsável pelo contexto de autenticação.
   - **hooks/**
-    - `useApi.ts`: Hook para requisições de consumo de API.
-    - `[outros hooks de requisições]`: Outros hooks utilizados no projeto.
+    - `[outros hooks de requisições]`: Hooks utilizados no projeto.
   - **lib/**
     - `utils.ts`: Arquivo de utilitários com funções auxiliares.
   - **pages/**
-    - `[Páginas do projeto]`: Contém as páginas acessíveis na aplicação.
+    - `[Páginas do projeto]`: Contém as páginas na aplicação.
   - **routes/**
     - `publicRoutes.tsx`: Define as rotas públicas.
     - `privateRoutes.tsx`: Define as rotas privadas.
