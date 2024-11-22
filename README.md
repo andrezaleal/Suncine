@@ -254,5 +254,3 @@ A integração com o back-end foi realizada através de **requisições HTTP** u
 - **Exibição do Top 10 Filmes**: Exibição da lista dos filmes mais populares no momento 🎬.
 - **Curtir/Descurtir Filmes**: Permite que o usuário curta ou descurta filmes na plataforma ❤️❌.
 - **Visualização de Filmes Curtidos**: O usuário pode acessar os filmes que curtiu ao longo do uso da aplicação 🍿.
-
-## Conclusão 🎉
