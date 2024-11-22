@@ -26,7 +26,6 @@ function MovieCard({ movie }: MovieCardProps) {
         </CardDescription>
       </CardFooter>
     </Card>
-
   );
 }
 export default MovieCard;

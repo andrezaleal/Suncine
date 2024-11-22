@@ -65,7 +65,6 @@ function MenuBar() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </nav>

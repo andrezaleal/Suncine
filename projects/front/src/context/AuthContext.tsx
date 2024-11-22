@@ -46,6 +46,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       localStorage.setItem(TOKEN_KEY, response.data.payload.token);
       localStorage.setItem(USER_KEY, JSON.stringify(response.data.payload.user));
     } catch (error: any) {
+      setIsAuthenticated(false);
       console.error("Erro no login:", error.message);
       throw new Error("Falha ao fazer login. Verifique as credenciais e tente novamente.");
     }

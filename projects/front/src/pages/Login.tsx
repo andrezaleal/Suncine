@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Navigate, useLocation } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
+import Modal from '../components/Modal';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isAuthenticated } = useAuth();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const location = useLocation();
 
@@ -15,14 +18,19 @@ function Login() {
     try {
       await login(email, password);
     } catch (error) {
-      alert("Erro ao fazer login: " + (error as Error).message);
+      const message = (error as Error).message;
+      setErrorMessage(message);
+      setIsModalOpen(true);
     }
   }
   
   if (isAuthenticated) {
-    const from = location.state?.from?.pathname || "/home"; // Página anterior ou '/home'
+    const from = location.state?.from?.pathname || "/home";
     return <Navigate to={from} replace />
   }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   
   return (
     <div>
@@ -37,8 +45,16 @@ function Login() {
           handleSubmit={handleSubmit}
         />
       </div>
+      {errorMessage && (
+        <Modal
+          titulo="Erro ao realizar o login"
+          descricao={errorMessage}
+          isOpen={isModalOpen} 
+          messageButton={'Fazer login novamente'}     
+          onClose={handleCloseModal}    
+        />
+      )}
     </div>
   );
 }
-
 export default Login;

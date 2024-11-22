@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import { api } from '../services/api/api';
 
-export const FavoriteMovie = (movieId: number, likestatus:boolean) => {
+export const FavoriteMovie = (movieId: number, likestatus:boolean, setLiked?:(value?:boolean)=>void) => {
   const [isLiked, setIsLiked] = useState(likestatus);
   const [loading, setLoading] = useState(false);
 	const [ error, setError ] = useState<string | null>(null);
@@ -16,6 +16,8 @@ export const FavoriteMovie = (movieId: number, likestatus:boolean) => {
         setIsLiked(false);
       }
         console.log(isLiked);
+        if(setLiked)
+        setLiked(isLiked);
     } catch (err: any) {
       setError(err.message);
       console.error('Erro ao alterar like:', error);

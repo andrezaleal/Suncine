@@ -114,6 +114,27 @@ button {
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
+@font-face {
+	font-family: 'Arboria';
+	src: url('./assets/fonts/Arboria-Light.ttf') format('truetype');
+	font-weight: 300; 
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arboria';
+	src: url('./assets/fonts/Arboria-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arboria';
+	src: url('./assets/fonts/Arboria-Black.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
 button:hover {
 	border-color: #1d564e;
 }
@@ -141,6 +162,6 @@ button:focus-visible {
     @apply border-border;
 	}
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-arboria;
 	}
 }

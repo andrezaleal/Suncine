@@ -7,7 +7,7 @@ function Profile(){
   return (
     <div>
       <MenuBar />
-      <div className="flex flex-col items-center pt-24">
+      <div className="flex flex-col items-center pt-24 min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/src/assets/images/gradient.svg')]">
         <Avatar className='flex mb-4 w-28 h-28'>
           <AvatarFallback className="text-6xl bg-gray600 text-white">D</AvatarFallback>
         </Avatar>
@@ -20,5 +20,4 @@ function Profile(){
     </div>
   );
 }
-
 export default Profile;

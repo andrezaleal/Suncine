@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal';
 
 interface LoginFormProps {
   email: string;
@@ -9,6 +10,7 @@ interface LoginFormProps {
 }
 
 function LoginForm({ email, password, setEmail, setPassword, handleSubmit }: LoginFormProps) {
+
   return (
       <div className="flex absolute flex-col justify-center px-6 py-12 lg:px-8 bg-[#4F4F4F80] bg-opacity-50 w-full sm:w-[50%] md:w-[40%] lg:w-[25%] ml-44">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm mb-8">
@@ -76,6 +78,7 @@ function LoginForm({ email, password, setEmail, setPassword, handleSubmit }: Log
           </div>
         </form>
       </div>
+      
   );
 };
 
