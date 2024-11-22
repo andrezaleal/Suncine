@@ -1,6 +1,5 @@
 packages:
   - "projects/*"
-
 catalog:
   # React
   "react": "^18.3.1"

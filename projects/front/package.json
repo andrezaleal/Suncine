@@ -10,15 +10,36 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.1",
+    "@radix-ui/react-progress": "^1.1.0",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@tabler/icons-react": "^3.22.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "add": "^2.0.6",
+    "autoprefixer": "^10.4.20",
+    "avatar": "^0.1.0",
+    "dlx": "^0.2.1",
     "globals": "catalog:",
+    "init": "^0.1.2",
+    "postcss": "^8.4.49",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "react-router-dom": "^6.28.0",
+    "shadcn": "^2.1.6",
+    "tailwindcss": "^3.4.15",
     "typescript": "catalog:",
     "vite": "catalog:"
-  }
+  },
+  "proxy": "http://localhost:3000/"
 }

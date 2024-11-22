@@ -6,13 +6,15 @@ import { RunSeed } from "./infra/seed"
 import { DB } from "./infra/db"
 import swagger from "@fastify/swagger"
 import swaggerUi from "@fastify/swagger-ui"
+import cors from "@fastify/cors"
 import path from "node:path"
 
 const PORT = 3000
 
 const fastify = Fastify({
   logger: true
-}).decorateRequest("user", undefined)
+}).register(cors, { origin: "*" })
+.decorateRequest("user", undefined)
 
 addRouters(fastify)
 
