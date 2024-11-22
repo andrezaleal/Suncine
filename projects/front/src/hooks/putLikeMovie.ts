@@ -24,5 +24,5 @@ export const FavoriteMovie = (movieId: number, likestatus:boolean) => {
     }
   }
 
-  return{likeMovie, isLiked}
+  return{likeMovie, isLiked, loading}
 };

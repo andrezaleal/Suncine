@@ -1,4 +1,3 @@
-import React from "react";
 import { IconHeartFilled, IconMovie, IconUserFilled, IconLogout } from '@tabler/icons-react';
 import { useAuth } from "../context/AuthContext";
 import { Avatar, AvatarFallback } from "./ui/avatar";
